@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои билеты{% endblock %}
+
+{% block content %}
+    <h1>Мои билеты</h1>
+    <div class="tickets">
+        {% for ticket in tickets %}
+            <div class="ticket">
+                <h3>Билет на {{ ticket.movie_name }}</h3>
+                <p>Дата сеанса: {{ ticket.session_time }}</p>
+                <p>Место: {{ ticket.seat_number }}</p>
+                <hr>
+            </div>
+        {% empty %}
+            <p>У вас нет купленных билетов.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
